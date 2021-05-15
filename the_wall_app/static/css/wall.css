@@ -1,0 +1,109 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#top {
+    width: 970px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightblue;
+    margin: 0px auto;
+    padding: 20px;
+}
+
+#top_right {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    justify-content: space-around;
+}
+
+#logout {
+    padding: 8px;
+}
+
+#wrapper {
+    margin: 0px auto;
+    width: 970px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    /* outline: 1px solid red; */
+}
+
+/* POST MESSAGE */
+
+textarea {
+    width: 950px;
+    margin: auto;
+}
+
+#post_message {
+    margin: 0px auto 20px;
+    padding: 10px;
+    /* outline: 1px solid blue; */
+}
+
+#pm_button {
+    float: right;
+    box-shadow: 4px 4px 2px rgb(0,0,0,.25);
+    background-color: #0388fc;
+    color: white;
+    padding: 4px;
+    border: grey 2px solid;
+}
+
+/* POST COMMENT */
+
+#post_comment {
+    margin: 10px 0px 35px 20px;
+}
+
+#post_comment textarea {
+    width: 940px;
+    height: 50px;
+}
+
+#post_comment form label {
+    display: block;
+}
+
+#pc_button {
+    background-color: #10b030;
+    color: white;
+    float: right;
+    box-shadow: 4px 4px 2px rgb(0,0,0,.25);
+    padding: 4px;
+    margin-right: 10px;
+    border: grey 2px solid;
+}
+
+/* MESSAGES */
+
+h4 {
+    margin-bottom: 10px;
+}
+
+.message p {
+    margin: 10px 0px 10px 10px;
+}
+
+#delete {
+    background-color: red;
+    color: white;
+    padding: 6px 16px;
+    border: grey 1px solid;
+    box-shadow: 4px 4px 2px rgb(0,0,0,.25);
+    margin: 0px 0px 10px 10px;
+}
+
+/* COMMENTS */
+
+.comment {
+    margin: 10px 0px 10px 20px;
+}
+
+h5 {
+    margin: 10px 0px;
+}

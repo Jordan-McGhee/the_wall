@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wall</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/wall.css' %}">
+</head>
+<body>
+    <div id="top">
+        <h1>CodingDojo Wall</h1>
+
+        <div id="top_right">
+            <h2>Welcome, {{user.first_name}}</h2>
+            <form action="logout" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="LOGOUT" class="button" id="logout">
+            </form>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="post_message">
+            <form action="message" method="POST">
+            {% csrf_token %}
+            <label for="message">Post a message</label>
+            <textarea name="message" id="" cols="30" rows="5"></textarea>
+            <input type="submit" value="Post a message" class="button" id="pm_button">
+            </form>
+        </div>
+
+        {% for message in messages reversed %}
+        <div class="message">
+            <h4>{{message.user.first_name}} {{message.user.last_name}} - {{message.created_at}}</h4>
+            <p>{{message.message}}</p>
+
+            {% if message.user == user %}
+            <form action="delete/{{message.id}}" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="DELETE" id="delete">
+            </form>
+            {% endif %}
+        </div>
+        {% for comment in comments %}
+            {% if comment.message == message %}
+            <div class="comment">
+                <h5>{{comment.user.first_name}} {{comment.user.last_name}} - {{comment.created_at}}</h5>
+                <p>{{comment.comment}}</p>
+            </div>
+            {% endif %}
+        {% endfor %}  
+
+        <div id="post_comment">
+            <form action="comment/{{message.id}}" method="POST">
+            {% csrf_token %}
+            <label for="comment">Post a comment</label>
+            <textarea name="comment" id="" cols="30" rows="5"></textarea>
+            <br>
+            <input type="submit" value="Post a comment" class="button" id="pc_button">
+            </form>
+        </div>
+
+        {% endfor %}
+    </div>
+</body>
+</html>
